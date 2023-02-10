@@ -1,0 +1,53 @@
+﻿@model IEnumerable<TuHotelEnLinea.Models.Room>
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h1>Index</h1>
+
+<p>
+    <a asp-action="Create">Create New</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.CategoryRoom)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.RoomNum)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.RoomFloor)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.RoomQuota)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.CategoryRoom.CategoryRoomDescription)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.RoomNum)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.RoomFloor)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.RoomQuota)
+            </td>
+            <td>
+                <a asp-action="Edit" asp-route-id="@item.RoomId">Edit</a> |
+                <a asp-action="Details" asp-route-id="@item.RoomId">Details</a> |
+                <a asp-action="Delete" asp-route-id="@item.RoomId">Delete</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>
